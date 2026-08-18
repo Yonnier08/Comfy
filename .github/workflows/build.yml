@@ -1,0 +1,27 @@
+name: Build Comfy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - f2x-sound-test
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build solution
+        run: msbuild Comfy.sln /p:Configuration=Release /p:Platform=x64 /m
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Comfy-Release-x64
+          path: |
+            **/x64/Release/*.exe
+            **/x64/Release/*.dll
