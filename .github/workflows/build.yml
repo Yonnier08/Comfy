@@ -18,7 +18,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Build ComfyVersion first
-        run: msbuild Comfy.sln /t:ComfyVersion /p:Configuration=Release /p:Platform=x64
+        run: msbuild ComfyVersion\ComfyVersion.vcxproj /p:Configuration=Release /p:Platform=x64 /p:SolutionDir="${{ github.workspace }}\"
 
       - name: Build solution
         run: msbuild Comfy.sln /p:Configuration=Release /p:Platform=x64 /m
