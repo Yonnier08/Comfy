@@ -34,6 +34,6 @@ jobs:
         with:
           name: Comfy-Release-x64
           path: |
-            **/x64/Release/*.exe
-            **/x64/Release/*.dll
+            **/bin/x64-Release/*.exe
+            **/bin/x64-Release/*.dll
             **/data/*.dat
