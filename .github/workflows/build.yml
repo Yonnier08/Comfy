@@ -23,6 +23,9 @@ jobs:
       - name: Build ComfyData first
         run: msbuild ComfyData\ComfyDataBuild.vcxproj /p:Configuration=Release /p:Platform=x64 /p:SolutionDir="${{ github.workspace }}\"
 
+      - name: Create ComfyData output folder
+        run: New-Item -ItemType Directory -Force -Path ComfyData\data
+
       - name: Build solution
         run: msbuild Comfy.sln /p:Configuration=Release /p:Platform=x64 /m
 
@@ -33,3 +36,4 @@ jobs:
           path: |
             **/x64/Release/*.exe
             **/x64/Release/*.dll
+            **/data/*.dat
