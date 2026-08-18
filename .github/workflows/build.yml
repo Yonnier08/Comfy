@@ -21,7 +21,7 @@ jobs:
         run: msbuild ComfyVersion\ComfyVersion.vcxproj /p:Configuration=Release /p:Platform=x64 /p:SolutionDir="${{ github.workspace }}\"
 
       - name: Build ComfyData first
-        run: msbuild ComfyData\ComfyData.vcxproj /p:Configuration=Release /p:Platform=x64 /p:SolutionDir="${{ github.workspace }}\"
+        run: msbuild ComfyData\ComfyDataBuild.vcxproj /p:Configuration=Release /p:Platform=x64 /p:SolutionDir="${{ github.workspace }}\"
 
       - name: Build solution
         run: msbuild Comfy.sln /p:Configuration=Release /p:Platform=x64 /m
